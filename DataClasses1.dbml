@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="mini" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-U7FPUES\SQLEXPRESS;Initial Catalog=mini;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="miniConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.fb" Member="fbs">
+    <Type Name="fb">
+      <Column Name="f_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="f_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="f_email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="f_phone" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Artist" Member="tbl_Artists">
+    <Type Name="tbl_Artist">
+      <Column Name="Art_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Art_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Art_Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Art_phone" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Art_Gender" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="Art_Dob" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Art_Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.take1" Method="take1">
+    <ElementType Name="take1Result">
+      <Column Name="f_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="f_email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="f_phone" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.upda" Method="upda">
+    <Parameter Name="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="phone" Type="System.String" DbType="VarChar(11)" />
+    <Parameter Name="gender" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="dob" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="pass" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.log1" Method="log1">
+    <Parameter Name="useid" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="pass" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="log1Result">
+      <Column Name="Art_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Art_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Art_Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Art_phone" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="Art_Gender" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Art_Dob" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Art_Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.check1" Method="check1">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="check1Result">
+      <Column Name="Art_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Art_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Art_Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Art_phone" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="Art_Gender" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Art_Dob" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Art_Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.change" Method="change">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="newpass" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.forget" Method="forget">
+    <Parameter Name="email" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="forgetResult">
+      <Column Name="Art_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Art_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Art_Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Art_phone" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="Art_Gender" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Art_Dob" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Art_Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.emailcheck" Method="emailcheck">
+    <Parameter Name="email" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="emailcheckResult">
+      <Column Name="Art_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Art_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Art_Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Art_phone" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="Art_Gender" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Art_Dob" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Art_Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.mobcheck" Method="mobcheck">
+    <Parameter Name="mob" Type="System.String" DbType="VarChar(11)" />
+    <ElementType Name="mobcheckResult">
+      <Column Name="Art_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Art_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Art_Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Art_phone" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="Art_Gender" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Art_Dob" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Art_Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.pickcat" Method="pickcat">
+    <ElementType Name="pickcatResult">
+      <Column Name="C_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="C_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="C_pic" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="C_r" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="C_s" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
